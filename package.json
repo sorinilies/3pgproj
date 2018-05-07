@@ -6,7 +6,10 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/sorinilies/3pgproj",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sorinilies/3pgproj.git"
+  },
   "keywords": [
     "Electron",
     "app"
@@ -14,6 +17,15 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^2.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/sorinilies/3pgproj/issues"
+  },
+  "homepage": "https://github.com/sorinilies/3pgproj#readme",
+  "dependencies": {
+    "asar": "^0.14.3",
+    "electron-packager": "^12.0.2",
+    "electron": "^2.0.0"
   }
 }

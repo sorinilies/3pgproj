@@ -5,14 +5,22 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
 const exec = require('child_process').exec;
-
-
+const fs = require('fs')
+const gutil = require('gulp-util');
 const path = require('path')
 const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+
+// Create Empty Dockerfile
+try {
+  const dockerfile = fs.openSync('Dockerfile', 'w')
+} catch (e) {
+  console.log('Error:', e);
+}
+
 
 function createWindow () {
   // Create the browser window.
@@ -36,7 +44,17 @@ function createWindow () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
+    // Deleting Dockerfile after window is closed
+    
     mainWindow = null
+    fs.exists('Dockerfile', function(exists) {
+      if(exists) {
+        console.log(gutil.colors.green('File exists. Deleting now ...'));
+        fs.unlink('Dockerfile');
+      } else {
+        console.log(gutil.colors.red('File not found, so not deleting.'));
+      }
+    });
   })
 }
 
@@ -63,9 +81,27 @@ app.on('activate', function () {
   }
 })
 
+
+// About Window
+function createAboutWindow() {
+  aboutWindow = new BrowserWindow({
+    width: 600,
+    height: 400,
+    title: "About This App"
+  });
+
+  aboutWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'about.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
+}
+
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
+// Testing executing a bash cmd
 function execute(command, callback) {
   exec(command, (error, stdout, stderr) => { 
       callback(stdout); 
@@ -94,9 +130,16 @@ const mainMenuTemplate = [
   },
 
   {
-      label: "About",
-      submenu: [{role: 'TODO'}]
+      label: "Help",
+      submenu: [
+        {
+          label: 'About',
+          click () {
+            createAboutWindow();
+          } 
+        }]
   }
+  
 ];
 
 

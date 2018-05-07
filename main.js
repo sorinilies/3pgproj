@@ -3,6 +3,9 @@ const electron = require('electron')
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
+const Menu = electron.Menu
+const exec = require('child_process').exec;
+
 
 const path = require('path')
 const url = require('url')
@@ -17,10 +20,13 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, 'home.html'),
     protocol: 'file:',
     slashes: true
   }))
+
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  Menu.setApplicationMenu(mainMenu);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -33,6 +39,7 @@ function createWindow () {
     mainWindow = null
   })
 }
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -58,3 +65,57 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+function execute(command, callback) {
+  exec(command, (error, stdout, stderr) => { 
+      callback(stdout); 
+  });
+};
+
+
+// Menu Template
+const mainMenuTemplate = [
+  {
+
+  },
+
+  {
+      label: "File",
+      submenu: [
+        {
+        label: 'execute',
+        click(item) {
+            execute('ping -c 4 8.8.8.8', (output) => {
+            console.log(output);
+          });
+        }}, 
+      ]
+
+  },
+
+  {
+      label: "About",
+      submenu: [{role: 'TODO'}]
+  }
+];
+
+
+//Dev Tools if not on production
+if (process.env.NODE_ENV !== 'production') {
+  mainMenuTemplate.push(
+    {
+      label: 'Developer Tools',
+      submenu: [
+        {
+          label: 'Toggle DevTools',
+          click(item, focusedWindow){
+            focusedWindow.toggleDevTools();
+          }
+        },
+        {
+          role: 'reload'
+        }
+      ]
+    }
+  )
+}

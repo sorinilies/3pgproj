@@ -11,7 +11,7 @@
         <div class="logo">
           <img src='https://agendabuilder.gartner.com/handlers/imagehandler.ashx?location=events\HTTP3\exhibitors\HTTP3-exhibitor-11454.png'></img>
         </div>
-        <div class="pages">
+        <!-- <div class="pages">
           <div class="home">
             <a  href="/home.html">
               <p>Home</p>
@@ -22,7 +22,7 @@
                 <p>About</p>
               </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -36,26 +36,56 @@
       </div>
     </div>
 
-    <div class="container">
-        <p>Click on the button to toggle between showing and hiding content.</p>
-        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Python
-       </button>
-        <div id="demo" class="collapse">
-           <form>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 1</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 2</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 3</label>
-          </div>
-        </form>
-        </div>
-    </div>
+    <body>
 
-    <script>
+        <div id="list1" class="dropdown-check-list" tabindex="100">
+            <span class="anchor">Python</span>
+            <ul class="items">
+                <li><input type="checkbox" />Selenium </li>
+                <li><input type="checkbox" />Robot</li>
+                <li><input type="checkbox" />Grapes </li>
+                <li><input type="checkbox" />Berry </li>
+                <li><input type="checkbox" />Mango </li>
+                <li><input type="checkbox" />Banana </li>
+                <li><input type="checkbox" />Tomato</li>
+            </ul>
+        </div>
+
+        <div id="list2" class="dropdown-check-list" tabindex="100">
+            <span class="anchor">Java</span>
+            <ul class="items">
+                <li><input type="checkbox" />Apple </li>
+                <li><input type="checkbox" />Orange</li>
+                <li><input type="checkbox" />Grapes </li>
+                <li><input type="checkbox" />Berry </li>
+                <li><input type="checkbox" />Mango </li>
+                <li><input type="checkbox" />Banana </li>
+                <li><input type="checkbox" />Tomato</li>
+            </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+
+
+      function checkElemList(list) {
+        let checkList = document.getElementById(list);
+      checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+          if (checkList.classList.contains('visible'))
+              checkList.classList.remove('visible');
+          else
+              checkList.classList.add('visible');
+      }
+
+      checkList.onblur = function(evt) {
+          checkList.classList.remove('visible');
+      }
+      }
+
+      checkElemList("list1");
+      checkElemList("list2")
+
+  
       // You can also require other files to run in this process
       require('./renderer.js')
     </script>

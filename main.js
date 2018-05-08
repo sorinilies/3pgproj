@@ -6,7 +6,7 @@ const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
 const exec = require('child_process').exec;
 const fs = require('fs')
-const gutil = require('gulp-util');
+const c = require('ansi-colors');
 const path = require('path')
 const url = require('url')
 
@@ -49,10 +49,10 @@ function createWindow () {
     mainWindow = null
     fs.exists('Dockerfile', function(exists) {
       if(exists) {
-        console.log(gutil.colors.green('File exists. Deleting now ...'));
+        console.log(c.green('File exists. Deleting now ...'));
         fs.unlink('Dockerfile');
       } else {
-        console.log(gutil.colors.red('File not found, so not deleting.'));
+        console.log(c.red('File not found, so not deleting.'));
       }
     });
   })
@@ -139,7 +139,7 @@ const mainMenuTemplate = [
           } 
         }]
   }
-  
+
 ];
 
 

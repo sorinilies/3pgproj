@@ -67,14 +67,24 @@ div.title {
     height: 100%;
     position: relative;
     align-items: center;
+    display: flex;
+    flex-direction: column; 
 }
 
-div.containerInnerBody.title.p {
-    display: flex;
+div.title p {
     align-items: center;
     margin: 0px 5px;
     align-items: center;
     font-size: 50px;
+    
+}
+
+div.dropDownContainer {
+    display: flex;
+}
+
+div.dropDownContainer div {
+    margin: 10px;
 }
 
 

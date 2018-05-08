@@ -25,6 +25,7 @@
   "homepage": "https://github.com/electron/electron-quick-start#readme",
   "dependencies": {
     "ansi-colors": "^2.0.1",
-    "asar": "^0.14.3"
+    "asar": "^0.14.3",
+    "npm": "^6.0.0"
   }
 }

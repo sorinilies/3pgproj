@@ -4,11 +4,11 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
-const exec = require('child_process').exec;
 const fs = require('fs')
 const c = require('ansi-colors');
 const path = require('path')
 const url = require('url')
+const shell = electron.shell
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -17,6 +17,7 @@ let mainWindow
 // Create Empty Dockerfile
 try {
   const dockerfile = fs.openSync('Dockerfile', 'w')
+  fs.appendFile('Dockerfile', 'FROM ubuntu' + '\n')
 } catch (e) {
   console.log('Error:', e);
 }
@@ -98,36 +99,9 @@ function createAboutWindow() {
 }
 
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-
-// Testing executing a bash cmd
-function execute(command, callback) {
-  exec(command, (error, stdout, stderr) => { 
-      callback(stdout); 
-  });
-};
-
-
 // Menu Template
 const mainMenuTemplate = [
-  {
-
-  },
-
-  {
-      label: "File",
-      submenu: [
-        {
-        label: 'execute',
-        click(item) {
-            execute('ping -c 4 8.8.8.8', (output) => {
-            console.log(output);
-          });
-        }}, 
-      ]
-
-  },
+  {},
 
   {
       label: "Help",
@@ -136,10 +110,22 @@ const mainMenuTemplate = [
           label: 'About',
           click () {
             createAboutWindow();
-          } 
-        }]
-  }
+          }, 
 
+        },
+        {
+          label: 'Get Docker',
+          click () {
+            shell.openExternal('https://www.docker.com/community-edition')
+          } 
+        },
+        {
+          label: '3Pillar Global',
+          click () {
+            shell.openExternal('http://3pillarglobal.com')
+          } 
+        }
+      ]},
 ];
 
 
@@ -151,14 +137,15 @@ if (process.env.NODE_ENV !== 'production') {
       submenu: [
         {
           label: 'Toggle DevTools',
+          accelerator: 'Cmd+Shift+c',
           click(item, focusedWindow){
-            focusedWindow.toggleDevTools();
+            focusedWindow.toggleDevTools()
           }
         },
         {
           role: 'reload'
         }
       ]
-    }
+    },
   )
 }

@@ -12,5 +12,6 @@ then
         echo "installing docker"
     fi
 else
-    brew install docker >&2
+    # brew install docker >&2
+    echo "Installing"
 fi

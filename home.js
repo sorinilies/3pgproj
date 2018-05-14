@@ -40,7 +40,7 @@ function removeLastLine () {
 // Appending install package commands to dockerfile
 function appendToDockerfile (id) {
         let package = eval('Resources.' + String(id))
-        fs.appendFile('Dockerfile', package + '\n', function (err) {
+        fs.append/File('Dockerfile', package + '\n', function (err) {
         if (err) throw err;
         console.log('added package! ' + id);
       });

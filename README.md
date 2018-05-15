@@ -4,7 +4,8 @@ The end goal is to create a standalone desktop app, which can be used to raise a
 
 ### Prerequisites
 
-Version 1.0 will only support linux based OS.
+Version 1.0 will only support linux based OS
+
 Docker
 
 

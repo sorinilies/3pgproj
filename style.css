@@ -2,10 +2,14 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 p {
     margin: 0;
+    color: #002F5F;
+    font-family: Roboto;
 }
 
 div.header {
@@ -16,6 +20,7 @@ div.header {
 }
 
 div.containerHeader {
+    border-bottom: 3px solid #ff7900;
     width: 100%;
     height: 100%;
     max-width: 1000px;
@@ -49,22 +54,15 @@ div.pages > div {
 
 div.innerBody {
     width: 100%;
-    height: 200px;
+    height: 30%;
     display: flex;
     justify-content: center;
-}
-
-div.containerInnerBody {
-    width: 100%;
-    height: 100%;
-    max-width: 1000px;
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    flex: 1;
 }
 
 div.title {
-    width: 1000px;
-    height: 100%;
+    width: 100%;
     position: relative;
     align-items: center;
     display: flex;
@@ -75,110 +73,47 @@ div.title p {
     align-items: center;
     margin: 0px 5px;
     align-items: center;
-    font-size: 50px;
+    font-size: 40px;
 }
 
-div.dropDownContainer {
+div.description {
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+}
+
+div.description p {
+    font-size: 20px;
+    margin-top:50px;
+}
+
+div.buttonsContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+div.buttonsContainer div.hoverButton {
+    margin: 10px;
+
+}
+
+div.hoverButton a button.btn {
+    height: 80px;
+    width: 200px;
+}
+
+div.footer {
+    justify-content: center;
+    max-width: 100%;
     display: flex;
 }
 
-div.dropDownContainer div {
-    margin: 10px;
+div.footer div.card.text-center {
+    max-width: 1000px;
+    width: 100%;
 }
-
-
-
-/*Dropdown Buttons*/
-.dropdown-check-list {
-    display: inline-block;
-  }
-  .dropdown-check-list .anchor {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    padding: 5px 50px 5px 10px;
-    border: 5px solid #ccc;
-  }
-  .dropdown-check-list .anchor:after {
-    position: absolute;
-    content: "";
-    border-left: 2px solid black;
-    border-top: 2px solid black;
-    padding: 5px;
-    right: 10px;
-    top: 20%;
-    -moz-transform: rotate(-135deg);
-    -ms-transform: rotate(-135deg);
-    -o-transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-    transform: rotate(-135deg);
-  }
-  .dropdown-check-list .anchor:active:after {
-    right: 8px;
-    top: 21%;
-  }
-  .dropdown-check-list ul.items {
-    padding: 2px;
-    display: none;
-    margin: 0;
-    border: 1px solid #ccc;
-    border-top: none;
-    background-color: white;
-  }
-  .dropdown-check-list ul.items li {
-    list-style: none;
-  }
-  .dropdown-check-list.visible .anchor {
-    color: #0094ff;
-  }
-  .dropdown-check-list.visible .items {
-    display: block;
-  }
-
-
-
-/*Build button */
-  .button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #00b200;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .button:hover span {
-    padding-right: 25px;
-  }
-  
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
-
-  div.buildButtonContainer{
-    text-align: center;
-    margin-top: 50px
-  }

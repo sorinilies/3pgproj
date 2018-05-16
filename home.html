@@ -3,82 +3,73 @@
   <head>
     <meta charset="UTF-8">
     <title>Testing Techs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <div class ='header'>
-      <div class="containerHeader">
-        <div class="logo">
-          <img src='https://agendabuilder.gartner.com/handlers/imagehandler.ashx?location=events\HTTP3\exhibitors\HTTP3-exhibitor-11454.png'></img>
-        </div>
-        
-        <!-- <div class="pages">
-          <div class="home">
-            <a  href="/home.html">
-              <p>Home</p>
+
+      <div class ='header'>
+        <div class="containerHeader">
+          <div class="logo">
+            <a href="https://www.3pillarglobal.com/">
+              <img src='https://agendabuilder.gartner.com/handlers/imagehandler.ashx?location=events\HTTP3\exhibitors\HTTP3-exhibitor-11454.png'></img>
             </a>
           </div>
-          <div class="about">
-              <a  href="/about.html">
-                <p>About</p>
+          
+          <div class="pages">
+            <div class="home">
+              <a  href="/home.html">
+                <p>Home</p>
               </a>
-          </div>
-       
-        </div> -->
-      </div>
-    </div>
-
-    <hr align="center" width="90%">
-
-    <div class="innerBody">
-      <div class="containerInnerBody">
-        <div class="title">
-            <p>Testing Techs Environment</p>
-            <div class="dropDownContainer">
-
-                <div id="list1" class="dropdown-check-list" tabindex="100">
-                    <span class="anchor">Python</span>
-                    <ul class="items">
-                        <li><input id="selenium" type="checkbox" />Selenium </li>
-                        <li><input id="robot"type="checkbox" />Robot</li>
-                        <li><input id ="paramiko"type="checkbox" />Paramiko </li>
-                        <li><input id="pexpect"type="checkbox" />Pexpect </li>
-                        <li><input id="pytest"type="checkbox" />Pytest </li>
-                    </ul>
-                </div>
-        
-                <div id="list2" class="dropdown-check-list" tabindex="100">
-                    <span class="anchor">Java</span>
-                    <ul class="items">
-                        <li><input id ="selenium"type="checkbox" />Selenium</li>
-                        <li><input id="scala"type="checkbox" />Scala</li>
-                        <li><input id="protractor"type="checkbox" />Protractor</li>
-                        <li><input id="spock"type="checkbox" />Spock</li>
-                        <li><input id="junit"type="checkbox" />jUnit</li>
-                        <li><input id="groovy"type="checkbox" />Groovy</li>
-                        <li><input id="jmeter"type="checkbox" />Jmeter</li>
-                        <li><input id="cucumber"type="checkbox" />Cucumber</li>
-                        <li><input id="appium"type="checkbox" />Appium</li>
-                        <li><input id="jmeter"type="checkbox" />Jmeter</li>
-                    </ul>
-                </div>
-              </div>
+            </div>
+            <div class="about">
+                <a  href="/about.html">
+                  <p>About</p>
+                </a>
+            </div>
+        </div>
         </div>
       </div>
-    </div>
-    
-    <div class="buildButtonContainer">
-      <div class="buildButton">
-          <button class="button" style="vertical-align:middle">
-            <span href="/build.html">Build!</span>
-            <a href="/build.html"></a>
-          </button>
+
+      <div class="innerBody">
+
+        <div class="title">
+          <p>Testing Techs Environment</p>
+        </div>
+
+        <div class="description">
+          <p>Welcome to 3PG Automation team</p>
+          <p>Choose your technology</p>
+        </div>
+
+        <div class="buttonsContainer">
+          
+            <div class="hoverButton">  
+                  <a href="/python.html" target="_self">
+                    <button type="button" class="btn btn-secondary btn-lg">Python</button>
+                  </a>
+            </div>
+
+            <div class="hoverButton">
+                  <a href="/java.html" target="_self">
+                    <button type="button" class="btn btn-secondary btn-lg">Java</button>
+                  </a>  
+            </div>
+
+        </div>
+
+      </div>  
+
+      <div class="footer">
+        <div class="card text-center">
+            <div class="card-footer text-muted">
+                Copyright © 3Pillar Global, Inc. All Rights Reserved.
+            </div>
+        </div>
       </div>
-    </div>
-
+    
     <script type="text/javascript">
-
-
       function checkElemList(list) {
         let checkList = document.getElementById(list);
       checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
@@ -87,12 +78,10 @@
           else
               checkList.classList.add('visible');
       }
-
       checkList.onblur = function(evt) {
           checkList.classList.remove('visible');
       }
       }
-
       checkElemList("list1");
       checkElemList("list2")
 
